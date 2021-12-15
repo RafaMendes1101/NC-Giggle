@@ -27,6 +27,7 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
     }
   }, [item.isExpanded]);
 
+<<<<<<< HEAD
   return (
     <View key={item.id}>
       <TouchableOpacity style={styles.item} onPress={onClickFunction}>
@@ -72,6 +73,49 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
       </View>
     </View>
   );
+=======
+
+	return (
+		<View key={item.id}>
+			<TouchableOpacity style={styles.item} onPress={onClickFunction}>
+				<Text style={styles.itemText}>{item.category_name}</Text>
+				<Image source={{ uri: item.image }} style={{ width: 375, height: 200 }} />
+			</TouchableOpacity>
+			<View
+				style={{
+					height: layoutHeight,
+					overflow: "hidden",
+				}}
+			>
+				{item.subcategory.map((value) => {
+					return (
+						<TouchableOpacity key={value.val} style={styles.content}>
+							<Text style={styles.text}>{value.val}</Text>
+							<View style={styles.seperator} />
+						</TouchableOpacity>
+					);
+				})}
+				<Button
+					title="I'm interested"
+					onPress={() => {
+						console.log(item.image);
+						createChatGroup(
+							item.id,
+							item.category_name,
+							item.subcategory[0].val,
+							item.subcategory[2].val,
+							item.image,
+							item
+						).then(() => {
+							addUserToChatGroup(item.id);
+						});
+					}}
+				/>
+			</View>
+		</View>
+	);
+
+>>>>>>> 3c89db36a751ad120a776b7cbc45cb28cce1747d
 };
 
 export default function GigScreen(props) {
@@ -166,6 +210,7 @@ export default function GigScreen(props) {
 }
 
 const styles = StyleSheet.create({
+<<<<<<< HEAD
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -220,4 +265,61 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
   },
+=======
+
+	container: {
+		flex: 1,
+		backgroundColor: "#fff",
+		alignItems: "center",
+		justifyContent: "center",
+	},
+	header: {
+		flexDirection: "row",
+		padding: 10,
+	},
+	titleText: {
+		flex: 1,
+		fontWeight: "bold",
+	},
+	headerBtn: {
+		textAlign: "center",
+		justifyContent: "center",
+	},
+	item: {
+		backgroundColor: "orange",
+		padding: 20,
+	},
+	itemText: {
+		fontWeight: "500",
+	},
+	content: {
+		paddingLeft: 10,
+		paddingRight: 10,
+		backgroundColor: "#fff",
+	},
+	text: {
+		padding: 10,
+	},
+	seperator: {
+		height: 0.5,
+		backgroundColor: "#c8c8c8",
+		width: "100%",
+	},
+	gigContainer: {
+		flexGrow: 0,
+	},
+	gigCard: {
+		flexGrow: 0,
+		alignItems: "center",
+		justifyContent: "center",
+	},
+	gigInfo: {
+		fontWeight: "700",
+	},
+	gigInfoBody: {
+		lineHeight: 15 * 1.5,
+		textAlign: "center",
+		marginTop: 20,
+	},
+>>>>>>> 3c89db36a751ad120a776b7cbc45cb28cce1747d
 });
