@@ -25,7 +25,7 @@ const Drawer = createDrawerNavigator();
 
 const DrawerNavigation = () => {
   const { userParams } = useContext(UserContext);
-  // console.log(userParams);
+  console.log(userParams);
   const [modalVisible, setModalVisible] = useState(false);
   const [genreValue, setGenreValue] = useState("");
   const [sortByValue, setSortByValue] = useState("date,asc");
@@ -86,7 +86,7 @@ const DrawerNavigation = () => {
   }, [userParams, initialCity]);
   return (
     <>
-      {console.log(gigs, "gigs in return")}
+      {/* {console.log(gigs, "gigs in return")} */}
       <Drawer.Navigator initialRouteName="Home">
         {gigs ? (
           <Drawer.Screen

@@ -96,30 +96,30 @@ export const getUserInfo = async () => {
 // use this when you need user information on a certain page/component
 // gets called when user is signed in
 // use getAuth to get auth object
-onAuthStateChanged(auth, (user) => {
-  try {
-    checkNewuser().then((u) => {
-      if (u) {
-        const userData = {
-          email: user.email,
-          uid: user.uid,
-          profile_picture: user.photoURL,
-          displayName: user.displayName,
-          age: 0,
-          city: "",
-          bio: "",
-          rating: 0,
-          awards: [],
-          genrePrefrences: [],
-          isNewUser: true,
-        };
-        setDoc(doc(db, "users", user.uid), userData);
-      }
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
+// onAuthStateChanged(auth, (user) => {
+//   try {
+//     checkNewuser().then((u) => {
+//       if (u) {
+//         const userData = {
+//           email: user.email,
+//           uid: user.uid,
+//           profile_picture: user.photoURL,
+//           displayName: user.displayName,
+//           age: 0,
+//           city: "",
+//           bio: "",
+//           rating: 0,
+//           awards: [],
+//           genrePrefrences: [],
+//           isNewUser: true,
+//         };
+//         setDoc(doc(db, "users", user.uid), userData);
+//       }
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 export const updateUser = async (userData) => {
   const userRef = doc(db, "users", auth.currentUser.uid);

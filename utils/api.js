@@ -6,14 +6,6 @@ const ticketmasterApi = axios.create({
 
 export const getGigsForHomePage = (genreId, sort, city) => {
   const currentDate = new Date();
-  // console.log(
-  //   city,
-  //   genreId,
-  //   sort,
-  //   `${currentDate.getFullYear()}-${
-  //     currentDate.getMonth() + 1
-  //   }-${currentDate.getDate()}T00:00:00Z`
-  // );
   return ticketmasterApi
     .get(
       `discovery/v2/events?apikey=AQ2psvkdE5dP1AD9SEmAPZ1Kb5AALDCG&locale=en-gb&startDateTime=${currentDate.getFullYear()}-${
