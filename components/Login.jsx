@@ -27,22 +27,14 @@ export default function Login({ navigation, route }) {
         placeholderTextColor="#EBE645"
         onChangeText={(text) => setEmail(text)}
       />
-      <View style={styles.eye}>
       <TextInput
-        secureTextEntry={hidePass ? true : false}
+        secureTextEntry={true}
         style={styles.input}
         placeholder="Password"
         placeholderTextColor="#EBE645"
         onChangeText={(text) => setPassword(text)}
-      /><Icon 
-        style={styles.eye}
-        name={hidePass ? 'eye-slash' : 'eye'}
-        size={15}
-        color="grey"
-        onPress={()=>{setHidePass(!hidePass)}}
-        />
-        </View>
-      <View style={styles.buttonsView}>
+      />
+       <View style={styles.buttonsView}>
         <Pressable
         style={({ pressed }) => [
           { opacity: pressed ? 0.5 : 1.0 }, 
