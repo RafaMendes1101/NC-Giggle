@@ -93,7 +93,7 @@ export default function Profile({ navigation, route }) {
         }
       />
       <Picker
-        style={styles.input}
+        style={styles.inputDropDown}
         selectedValue={genreValue}
         onChange={(itemValue) => {
           setGenreValue(itemValue.target.value);
@@ -144,6 +144,16 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width - 50,
     borderRadius: 10,
     padding: 10,
+  },
+  inputDropDown:{
+      marginBottom: 30,
+      backgroundColor: "#577BC1",
+      color: "#EBE645",
+      fontSize: 24,
+      height: 40,
+      width: Dimensions.get("window").width - 50,
+      borderRadius: 10,
+      // padding: 10,
   },
   button: {
     backgroundColor: "#577BC1",
